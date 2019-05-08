@@ -36,7 +36,7 @@ namespace myRetail.Controllers
         /// <returns>The name of the product if found otherwise null.</returns>
         public string GetProductName(int id)
         {
-            TargetNameFunctionality name = new TargetNameFunctionality();
+            ExternalAPIInformationGather name = new ExternalAPIInformationGather();
             return name.GetName(id);
         }
 
@@ -47,7 +47,7 @@ namespace myRetail.Controllers
         /// <returns>The price of the product if found otherwise null.</returns>
         public string GetProductPrice(int id)
         {
-            TargetNameFunctionality name = new TargetNameFunctionality();
+            ExternalAPIInformationGather name = new ExternalAPIInformationGather();
             return name.GetInitialPrice(id);
         }
 
@@ -134,6 +134,7 @@ namespace myRetail.Controllers
             LiteDatabase db = getLiteDatabase();//get database connection
             try
             {
+                string test = "";
                 using (db)
                 {
                     var collection = db.GetCollection<Product>("Product");
@@ -154,7 +155,7 @@ namespace myRetail.Controllers
             }
         }
 
-        public class NewValue
+        public class NewValue//binding object for put
         {
             public string value { get; set; }
         }

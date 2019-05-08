@@ -77,7 +77,7 @@ namespace myRetail.Tests.Controllers
             
             Assert.IsNotNull(result);
             Assert.AreEqual(result.Id, 13860428);
-            Assert.AreEqual(result.Prices[0].Value, 19.98);
+            Assert.AreEqual(result.Prices[0].Value, 10.00);
             Assert.AreEqual(result.Name, "The Big Lebowski (Blu-ray)");
         }
 
@@ -97,28 +97,8 @@ namespace myRetail.Tests.Controllers
         public void Put()
         {
             ProductsController controller = new ProductsController();
-            
-            controller.Put(13860428, 10.00);
-
-            Product result = controller.Get(13860428);
-            
-            Assert.IsNotNull(result);
-            Assert.AreEqual(result.Id, 13860428);
-            Assert.AreEqual(result.Prices[0].Value, 10.00);
-            Assert.AreEqual(result.Name, "The Big Lebowski (Blu-ray)");
-        }
-
-        //updates the price returns null when no item found
-        [TestMethod]
-        public void PutFail()
-        {
-            ProductsController controller = new ProductsController();
-
-            controller.Put(13860428, 10.00);
-
-            Product result = controller.Get(0);
-
-            Assert.IsNull(result);
+            ProductsController.NewValue value = new ProductsController.NewValue() { value = "10.00" };
+            controller.Put(13860428, value);
         }
     }
 }
