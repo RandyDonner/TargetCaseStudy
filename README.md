@@ -7,6 +7,8 @@ I made a C# ASP.NET WebAPI for this project. I used the default template so ther
 
 Right out of the box you are able to get the nuget packages and run the unit tests. Run GetById first to add a record to the liteDb and then all tests will pass. Running on local host you are able to use postman to hit the endpoints. The put request needs to have the id in the URL and the value in the body as json.
 
+URL as well as LiteDb configuration in web.config for API and app.config for unit test. LiteDb set to c:\myRetail. When running as admin it was able to create the folder for me but if unable just manually add the folder and it should work.
+
 Example endpoints:
 1. GET localhost:50124/api/products/13860428
 2. GET localhost:50124/api/products
